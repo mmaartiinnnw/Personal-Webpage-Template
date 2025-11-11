@@ -43,5 +43,3 @@ This is a static project, so it doesn't require a build process.
 >
 > If you use Visual Studio Code, you can use the [**Live Server**](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension to launch a server with a single click.
 
-## 📁 File Structure
-##
