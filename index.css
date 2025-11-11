@@ -1,0 +1,281 @@
+/*
+====================================
+  VARIABLES Y RESET BÁSICO (ESPAÑOL)
+====================================
+*/
+:root {
+    /* colores */
+    --c-principal: #f176ff; /* neón */
+    --c-fondo: #0a0a0a;
+    --c-caja: #1a1a1a; /* fondo de tarjetas */
+    --c-texto-claro: #f0f0f0;
+    --c-texto-oscuro: #888888;
+    /* tipografía */
+    --f-titulo: 'Montserrat', sans-serif;
+    --f-cuerpo: 'Open Sans', sans-serif;
+    /* otros */
+    --transicion: 0.3s ease-out;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@keyframes giroNeon { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+body {
+    font-family: var(--f-cuerpo);
+    background-color: var(--c-fondo);
+    color: var(--c-texto-claro);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+a { color: var(--c-principal); text-decoration: none; transition: color var(--transicion); }
+a:hover { color: #ab3df6; } /* neón más brillante */
+
+/*
+====================================
+  GENERALES Y BOTONES
+====================================
+*/
+.seccion { padding: 80px 5%; min-height: 80vh; }
+
+h1, h2, h3 { font-family: var(--f-titulo); }
+
+.seccion-titulo {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--c-principal);
+    text-shadow: 0 0 5px rgba(188, 20, 255, 0.5);
+}
+
+/* botón principal (.btn.principal) y secundario (.btn.secundario) */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: transform var(--transicion), box-shadow var(--transicion), background-color var(--transicion);
+}
+
+.btn.principal {
+    background-color: var(--c-principal);
+    color: var(--c-fondo);
+    margin-right: 15px;
+    box-shadow: 0 0 10px rgba(204, 20, 255, 0.5);
+}
+
+.btn.principal:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--c-principal);
+}
+
+.btn.secundario {
+    color: var(--c-principal);
+    border: 2px solid var(--c-principal);
+    padding: 10px 20px; /* para compensar el borde */
+}
+
+.btn.secundario:hover {
+    background-color: var(--c-principal);
+    color: var(--c-fondo);
+}
+
+/*
+====================================
+  CABECERA Y HERO
+====================================
+*/
+.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--c-caja);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.7);
+}
+
+.logo { font-family: var(--f-titulo); font-size: 1.8em; font-weight: 700; color: var(--c-principal); }
+.nav-lista { display: flex; list-style: none; }
+.nav-lista li a { padding: 10px 15px; color: var(--c-texto-claro); }
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 90vh;
+    padding-top: 100px;
+}
+
+.hero-contenido { position: relative; z-index: 10; }
+.hero-contenido h1 { font-size: 3.5em; margin: 10px 0; }
+.resaltado { color: var(--c-principal); text-shadow: 0 0 10px rgba(224, 20, 255, 0.8); }
+.slogan { font-size: 1.3em; color: var(--c-texto-oscuro); margin-bottom: 40px; display: block; }
+
+/* elemento decorativo de fondo */
+.hero-fondo {
+    position: absolute;
+    top: 50%; left: 50%;
+    margin-top: -200px; margin-left: -200px; /* centrado en móvil */
+    width: 400px; height: 400px;
+    border: 5px solid var(--c-principal);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(188, 20, 255, 0.5), inset 0 0 30px rgba(196, 20, 255, 0.3);
+    opacity: 0.15;
+    z-index: 1;
+    animation: giroNeon 30s linear infinite;
+}
+
+/*
+====================================
+  SECCIÓN SOBRE MÍ
+====================================
+*/
+.cont-caja {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.foto-perfil {
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--c-principal);
+    box-shadow: 0 0 15px rgba(179, 52, 230, 0.4);
+}
+.cont-texto { text-align: center; max-width: 700px; }
+.cont-texto p { margin-bottom: 15px; }
+
+
+/*
+====================================
+  PROYECTOS Y HABILIDADES
+====================================
+*/
+/* Rejillas generales */
+.proyectos-rejilla, .habilidades-rejilla {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta {
+    background-color: var(--c-caja);
+    padding: 25px;
+    border-radius: 10px;
+    border-bottom: 3px solid var(--c-principal);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    transition: transform var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(232, 20, 255, 0.3);
+}
+
+.tarjeta img {
+    width: auto;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.tarjeta a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 15px;
+    border: 1px solid var(--c-principal);
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+/* Habilidades */
+.habilidades-rejilla { gap: 25px; max-width: 800px; }
+.habilidad span { display: block; margin-bottom: 5px; font-weight: 700; }
+.barra { background-color: #333; border-radius: 5px; height: 12px; overflow: hidden; }
+.nivel {
+    height: 100%;
+    background-color: var(--c-principal);
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--c-principal);
+    width: 0; /* inicio de la animación */
+    transition: width 1.5s ease-out;
+}
+
+/*
+====================================
+  CONTACTO Y PIE
+====================================
+*/
+.seccion-contacto { text-align: center; }
+
+.form-contacto {
+    max-width: 500px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-contacto input, .form-contacto textarea {
+    padding: 15px;
+    border: none;
+    background-color: var(--c-caja);
+    color: var(--c-texto-claro);
+    border-radius: 5px;
+    font-family: var(--f-cuerpo);
+    font-size: 1em;
+    border-bottom: 1px solid var(--c-texto-oscuro);
+    resize: vertical;
+}
+.form-contacto .principal { width: 100%; margin-right: 0; }
+
+.pie {
+    text-align: center;
+    padding: 30px 5%;
+    background-color: var(--c-caja);
+    border-top: 2px solid var(--c-principal);
+    font-size: 0.9em;
+}
+
+.redes { margin-top: 15px; }
+.redes a { font-size: 1.8em; margin: 0 15px; color: var(--c-texto-claro); }
+.redes a:hover { color: var(--c-principal); transform: scale(1.1); transition: transform var(--transicion); }
+
+
+/*
+====================================
+  MEDIA QUERIES (ADAPTABILIDAD)
+====================================
+*/
+@media (min-width: 768px) {
+    .cabecera { padding: 15px 10%; }
+    .cont-caja { flex-direction: row; text-align: left; }
+    .cont-texto { text-align: left; }
+    .proyectos-rejilla { grid-template-columns: repeat(2, 1fr); }
+    .habilidades-rejilla { grid-template-columns: repeat(2, 1fr); }
+    /* Ajuste de centrado de fondo en tablet */
+    .hero-fondo { width: 600px; height: 600px; margin-top: -300px; margin-left: -300px; opacity: 0.1; }
+}
+
+@media (min-width: 1200px) {
+    .seccion { padding: 100px 15%; }
+    .hero-contenido h1 { font-size: 4.5em; }
+    .proyectos-rejilla { grid-template-columns: repeat(3, 1fr); }
+    /* Ajuste de centrado de fondo en escritorio */
+    .hero-fondo { width: 800px; height: 800px; margin-top: -400px; margin-left: -400px; }
+}
